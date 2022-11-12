@@ -53,7 +53,10 @@ public class OrderService {
         return "You rated the order process " + rating + " stars. Thank you for your feedback!\n";
     }
 
-    // TODO: Add a gauge to track the rating
+    // Add a gauge to track the rating
+    @Gauge(name = "order_svc:spl50_order_process_rating",
+           unit = MetricUnits.NONE,
+           description = "Overall customer rating for the order process")
     private Integer generateRandomRating() {
         return getRandom(1, 5);
     }
